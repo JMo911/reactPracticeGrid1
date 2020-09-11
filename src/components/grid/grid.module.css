@@ -1,0 +1,8 @@
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    margin: 1em;
+    border-radius: 0.5em;
+    background-color: slategray;
+}
