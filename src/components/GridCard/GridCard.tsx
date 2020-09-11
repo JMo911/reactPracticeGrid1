@@ -9,10 +9,9 @@ function GridCard(props: UserProps) {
         <div className="card">
             <div className="card-body">
                 <h5 className="card-title">{props.name}</h5>
-                <ul>
-                    <li>Email: {props.email.trim()}</li>
-                    <li>Username: {props.username.trim()}</li>
-                </ul>
+                <div className="email"><strong>Email:</strong> {props.email.trim()}</div>
+                <div><strong>Username:</strong> {props.username.trim()}</div>
+                <br></br>
                 <p className="card-text">{props.company.catchPhrase}</p>
                 <a href={props.website} className="btn btn-primary">Visit Website</a>
             </div>
