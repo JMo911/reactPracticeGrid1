@@ -13,7 +13,7 @@ function GridCard(props: UserProps) {
                 <div><strong>Username:</strong> {props.username.trim()}</div>
                 <br></br>
                 <p className="card-text">{props.company.catchPhrase}</p>
-                <a href={props.website} className="btn btn-primary">Visit Website</a>
+                <a href={props.website} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Visit Website</a>
             </div>
         </div>
   )};
