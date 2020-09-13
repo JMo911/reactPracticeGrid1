@@ -30,6 +30,7 @@ export interface UserProps {
 const Grid: React.FC = () => {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
+  const [value, setValue] = useState('');
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -42,19 +43,23 @@ const Grid: React.FC = () => {
     fetchUsers();
   }, []);
 
-  const filterUsers = (searchName: string) => {
-    if (!searchName || searchName === "") {
-      setFilteredUsers(users);
-    } else {
-      setFilteredUsers(users.filter((user: UserProps) => user.name.toLowerCase().includes(searchName.toLowerCase())));
+  useEffect(() => {
+    const filterUsers = (searchName: string) => {
+      if (!searchName || searchName === "") {
+        setFilteredUsers(users);
+      } else {
+        setFilteredUsers(users.filter((user: UserProps) => user.name.toLowerCase().indexOf(searchName.toLowerCase()) > -1));
+      }
     }
-  }
+
+    filterUsers(value);
+  }, [users, value])
 
   return (
   <div className="wrapper">
     {/* TOOLBAR */}
     <div className="toolbar">
-      <GridToolbar filterUsers={filterUsers} />
+      <GridToolbar value={value} setValue={setValue} />
     </div>
 
     {/* GRID */}

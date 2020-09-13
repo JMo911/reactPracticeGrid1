@@ -4,16 +4,9 @@ import './GridToolbar.css';
 // import{ UserProps } from '../grid/grid'
 
 
-function GridToolbar({filterUsers}: any) {
-    const [value, setValue] = useState('');
-
-    // const handleSubmit = (e: any) => {
-    //     e.preventDefault();
-    //     filterUsers(value);
-    // }
-
+function GridToolbar({value, setValue}: any) {
     const handleChange = (e: any) => {
-        filterUsers(value);
+        setValue(e.target.value);
     }
 
     return (
@@ -22,14 +15,10 @@ function GridToolbar({filterUsers}: any) {
                 <div className="form-group">
                     <label>
                     Search by Name:
-                    <input type="text" value={value} onChange={(e)=> {
-                        setValue(e.target.value);
-                        handleChange(value);
-                    }
-                    } />
+                    <input type="text" value={value} onChange={handleChange} />
                     </label>
                     </div>
-                <input type="submit" value="Submit" />
+                {/* <input type="submit" value="Submit" /> */}
             </form>
         </div>
   )};
