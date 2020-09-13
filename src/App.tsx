@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Grid from './components/grid/grid';
+import Navbar from './components/navbar';
 
 function App() {
   return (
     <div className="App">
-      <Grid />
+      <Navbar />
     </div>
   );
 }
