@@ -27,9 +27,23 @@ function DataTable({ data }: any) {
             <tbody>
                 {data.map((row: any) => <tr>
                     {
-                        columns.map((column) => <td>
-                            {row[column]}
-                        </td>)
+                        columns.map((column) => 
+                        {
+                            if (column !== "links") {
+                            return <td>{row[column]}</td>
+                            } else {
+                                // return <td>Links</td>
+                                // const subData = row[column] || {};
+                                const subData = Object.keys(row[column]);
+                                    return <td>
+                                        <ul>
+                                            {subData.map((subRow: any) => {
+                                                return <li>{subRow}: {row[column][subRow] ? row[column][subRow]: 'Not provided.'}</li>
+                                            })}
+                                        </ul>
+                                    </td>
+                            }
+                        })
                     }
                 </tr>)}
             </tbody>
